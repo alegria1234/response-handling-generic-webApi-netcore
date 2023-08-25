@@ -2,6 +2,7 @@
 using Application.Model;
 using Microsoft.AspNetCore.Mvc;
 using ResponseHandling.WebApi.Helpers;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace ResponseHandling.WebApi.Controllers
 {
@@ -15,6 +16,9 @@ namespace ResponseHandling.WebApi.Controllers
             _carApp = carApp;
         }
 
+        [SwaggerOperation(
+         Summary = "Car registration",
+         Description = "All fields are mandatory.")]
         [HttpPost]
         [HandleRequestResponse]
         public ActionResult Create([FromBody] Car car)
@@ -23,6 +27,9 @@ namespace ResponseHandling.WebApi.Controllers
             return Ok();
         }
 
+        [SwaggerOperation(
+         Summary = "Listing cars by name",
+         Description = "the name field is mandatory.")]
         [HttpGet]
         [Route("getbyname")]
         [HandleRequestResponse(TypeResponse = ETypeRequestResponse.ResponseWithData)]
@@ -31,6 +38,9 @@ namespace ResponseHandling.WebApi.Controllers
             return Ok(_carApp.GetByName(name));
         }
 
+        [SwaggerOperation(
+           Summary = "List car by id",
+           Description = "the id field is mandatory.")]
         [HttpGet]
         [Route("getbyid")]
         [HandleRequestResponse(TypeResponse = ETypeRequestResponse.ResponseWithData)]

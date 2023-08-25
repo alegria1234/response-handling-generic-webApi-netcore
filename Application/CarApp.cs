@@ -45,21 +45,21 @@ namespace Application
             new  Car
             {
                 Id = 10,
-                Name = "Hunday",
+                Name = "Hyundai",
                 Brand = "i10",
                 Price = 3000
             },
             new  Car
             {
                 Id = 20,
-                Name = "Hunday",
+                Name = "Hyundai",
                 Brand = "i20",
                 Price = 4000
             },
             new  Car
             {
                 Id = 30,
-                Name = "Hunday",
+                Name = "Hyundai",
                 Brand = "Tucson",
                 Price = 5000
             }
