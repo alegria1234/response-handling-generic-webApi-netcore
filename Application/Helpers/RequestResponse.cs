@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Application.Helpers
 {
-    internal static class ResponseRequest
+    internal static class RequestResponse
     {
         public static void UnSuccess(string message)
         {
@@ -31,7 +31,7 @@ namespace Application.Helpers
 
         private static void ExceptionResponse(EResponse response, string message)
         {
-            throw new ExceptionResponse(response, message);
+            throw new ResponseException(response, message);
         }
     }
 }

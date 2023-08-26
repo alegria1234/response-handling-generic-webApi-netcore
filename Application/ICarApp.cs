@@ -6,6 +6,5 @@ namespace Application
     {
         void Create(Car car);
         List<Car> GetByName(string name);
-        Car GetById(int id);
     }
 }

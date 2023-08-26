@@ -11,7 +11,7 @@ namespace ResponseHandling.WebApi.Helpers
         public ETypeRequestResponse TypeResponse { get; set; }
 
         /// <summary>
-        /// After resquest 
+        /// After a resquest 
         /// </summary>
         /// <param name="context"></param>
         public override void OnActionExecuted(ActionExecutedContext context)
@@ -29,7 +29,7 @@ namespace ResponseHandling.WebApi.Helpers
                         context.Result = new NotFoundResult();
                 }
             }
-            else if (context.Exception is ExceptionResponse exceptionResponse)
+            else if (context.Exception is ResponseException exceptionResponse)
             {
                 context.Result = Handled(exceptionResponse);
                 context.ExceptionHandled = true;
@@ -42,13 +42,8 @@ namespace ResponseHandling.WebApi.Helpers
 
             base.OnActionExecuted(context);
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="exceptionResponse"></param>
-        /// <returns></returns>
-        private static IActionResult Handled(ExceptionResponse exceptionResponse)
+ 
+        private static IActionResult Handled(ResponseException exceptionResponse)
         {
             string message = string.IsNullOrWhiteSpace(exceptionResponse.Message) ? string.Empty : exceptionResponse.Message;
 
@@ -86,6 +81,4 @@ namespace ResponseHandling.WebApi.Helpers
             return true;
         }
     }
-
-
 }

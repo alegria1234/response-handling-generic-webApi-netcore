@@ -1,10 +1,10 @@
 ﻿namespace Application.Helpers
 {
-    public class ExceptionResponse : Exception
+    public class ResponseException : Exception
     {
         public EResponse Code { get; set; }
 
-        public ExceptionResponse(EResponse code, string message) :base(message)
+        public ResponseException(EResponse code, string message) :base(message)
         {
             Code = code;
         }

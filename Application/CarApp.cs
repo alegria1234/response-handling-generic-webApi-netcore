@@ -14,13 +14,13 @@ namespace Application
         /// <param name="car"></param>
         public void Create(Car car)
         {
-            ResponseRequest.UnSuccess(car == null, "invalid input");
+            RequestResponse.UnSuccess(car == null, "invalid input");
 
-            ResponseRequest.UnSuccess(string.IsNullOrWhiteSpace(car.Name), "Required Name");
+            RequestResponse.UnSuccess(string.IsNullOrWhiteSpace(car.Name), "Required Name");
         }
 
         /// <summary>
-        /// Get by name
+        /// Get cars by name
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
@@ -29,17 +29,6 @@ namespace Application
             return carsTestes.Where(c => c.Name.Contains(name)).ToList();
         }
 
-        /// <summary>
-        /// Get by id
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public Car GetById(int id)
-        {
-            return carsTestes.FirstOrDefault(c => c.Id == id);
-        }
-
-        
         private static List<Car> carsTestes = new List<Car>
         {
             new  Car

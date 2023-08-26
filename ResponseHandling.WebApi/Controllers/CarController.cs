@@ -37,16 +37,5 @@ namespace ResponseHandling.WebApi.Controllers
         {
             return Ok(_carApp.GetByName(name));
         }
-
-        [SwaggerOperation(
-           Summary = "List car by id",
-           Description = "the id field is mandatory.")]
-        [HttpGet]
-        [Route("getbyid")]
-        [HandleRequestResponse(TypeResponse = ETypeRequestResponse.ResponseWithData)]
-        public ActionResult GetById(int id)
-        {
-            return Ok(_carApp.GetById(id));
-        }
     }
 }
